@@ -135,8 +135,26 @@ const petshop ={
                     break;
             }
         console.log(`${pet.tutor} obrigado pela preferencia!`)   
-    }   
+    },
+    
+    contatoTutor: (pet) => {
+        let {nome, tutor, contato} = pet;
         
+        return `Tutor: ${tutor}
+        Contato: ${contato}
+        Pet: ${nome}`;
+    },
+    
+    filtrarTutor: (nomeTutor) => {
+        let petsTutor = bancoDados.pets.filter((pet) => {
+            return pet.tutor == nomeTutor;
+        });
+        
+        console.log(`Pets do tutor ${nomeTutor}:`)
+        petsTutor.forEach((pet) => {
+            console.log(`${pet.nome} - ${pet.tipo}`)
+        })
+    }      
 }
 
 module.exports = petshop;
